@@ -7,10 +7,20 @@ const Home = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/users/")
+        fetch("http://localhost:8080/cliente", 
+        {        
+            
+            headers : {
+                "Access-Control-Allow-Headers": "http://localhost:8080",
+                "Access-Control-Allow-Origin": "http://localhost:8080",
+                "Access-Control-Allow-Methods": "http://localhost:8080"      
+            }
+        })
             .then(res => res.json())
+            .then(res => console.log(res))
             .then(
                 (data) => {
+                    console.log(data);
                     setIsLoaded(true);
                     setUsers(data);
                 },
@@ -29,9 +39,12 @@ const Home = () => {
         return (
             <ul>
                 {users.map(user => (
-                    <li key={user.id}>
-                        <Link to={`user/${user.id}`}>{user.name}</Link>
-                    </li>
+                    <div>
+                        {user.nombre}
+                    </div>
+                    //<li key={user.id}>
+                        //<Link to={`user/${user.id}`}>{user.name}</Link>
+                    //</li>
                 ))}
             </ul>
         );
