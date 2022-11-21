@@ -1,10 +1,10 @@
 import React from 'react';
-import Webpages from './webpages';
+import Components from './Components/Components';
 
 function App() {
   return(
     <div>
-      <Webpages />
+      <Components />
     </div>
   );
 }

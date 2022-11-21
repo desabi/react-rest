@@ -6,22 +6,22 @@ import {
     Routes    
 } from "react-router-dom";
 
-import Home from './home';
+import Clientes from './Clientes';
 import Cliente from './Cliente';
-// fuente
+import ClientesInactivos from './ClientesInactivos';
+
 // https://medium.com/@nutanbhogendrasharma/step-by-step-consume-rest-api-in-react-application-48388f6c4d9c
 
-const Webpages = () => {
-    //<Route exact path="/" component= {Home} />
-    //<Route path = "/user" component = {User} />
+const Components = () => {
     return(
         <Router>
             <Routes>                
-                <Route exact path="/" element={<Home />} />
-                <Route path = "/cliente/:objectId" element={<Cliente />} />            
+                <Route exact path="/" element={<Clientes />} />
+                <Route path = "/cliente/:objectId" element={<Cliente />} />
+                <Route exact path="/cliente/inactivos" element={<ClientesInactivos />} />            
             </Routes>                                
         </Router>
     );
 };
 
-export default Webpages;
+export default Components;
